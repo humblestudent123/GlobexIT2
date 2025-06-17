@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { Suspense } from "react";
+import MainLayout from "./layouts/MainLayout";
+import styles from "./App.module.scss";
+import { DashboardBlock } from "./components/blocks/DashboardBlock";
+import { DraggableBlocksContainer } from "./components/DraggableBlocksContainer";
 
-function App() {
-  const [count, setCount] = useState(0)
+const TrainingBlock = React.lazy(() => import("./components/blocks/TrainingBlock"));
+const TeamBlock = React.lazy(() => import("./components/blocks/TeamBlock"));
+
+export default function App() {
+  const userRole = "developer";
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <MainLayout userRole={userRole}>
+      <div className={styles.container}>
+        <DashboardBlock />
+        <DraggableBlocksContainer>
+          <Suspense fallback={<div>Загрузка блока "Обучение"...</div>}>
+            <TrainingBlock />
+          </Suspense>
+          <Suspense fallback={<div>Загрузка блока "Моя команда"...</div>}>
+            <TeamBlock />
+          </Suspense>
+        </DraggableBlocksContainer>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </MainLayout>
+  );
 }
-
-export default App
