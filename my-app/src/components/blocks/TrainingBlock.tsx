@@ -3,5 +3,5 @@ import { Card } from "antd";
 
 export default function TrainingBlock() {
   const hasTrainings = true;
-  return hasTrainings ? <Card title="Обучение">Список активных обучений...</Card> : null;
+  return hasTrainings ? <Card title="Руководители">Загрузка...</Card> : null;
 }
