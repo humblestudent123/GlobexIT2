@@ -10,7 +10,7 @@ export default function ProfileSidebar() {
       <div className={styles.avatarBlock}>
         <Avatar
           size={100}
-          src=""
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq1ZfhDpT5ax05fed9GdEXPMtQTDFiDFySaA&s"
         />
         <Text strong className={styles.fullName}>
           Поняев Никита Иванович
