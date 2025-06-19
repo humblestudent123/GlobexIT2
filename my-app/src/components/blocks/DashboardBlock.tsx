@@ -12,22 +12,23 @@
 
 
 import React from "react";
-import { Card, List, Avatar } from "antd";
+import { Card, List, Typography } from "antd";
 import styles from "./DashboardBlock.module.scss";
+
+const { Text } = Typography;
 
 const tasks = [
   {
-    title: "Завершить ревью кода",
-    icon: "https://cdn-icons-png.flaticon.com/512/3306/3306153.png",
-
+    title: "Тест1",
+    description: "Осталось: без срока",
   },
   {
-    title: "Обновить документацию",
-    icon: "https://cdn-icons-png.flaticon.com/512/3468/3468376.png",
+    title: "Тест2",
+    description: "Осталось: без срока",
   },
   {
-    title: "Проверить тесты на CI",
-    icon: "https://cdn-icons-png.flaticon.com/512/1828/1828919.png",
+    title: "Тест3",
+    description: "Осталось: без срока",
   },
 ];
 
@@ -40,8 +41,9 @@ export function DashboardBlock() {
         renderItem={(task) => (
           <List.Item>
             <List.Item.Meta
-              avatar={<Avatar src={task.icon} />}
-              title={task.title}
+              avatar={<span style={{ fontSize: 20 }}>📄</span>}
+              title={<Text strong>{task.title}</Text>}
+              description={<Text type="secondary">{task.description}</Text>}
             />
           </List.Item>
         )}
@@ -49,3 +51,9 @@ export function DashboardBlock() {
     </Card>
   );
 }
+
+
+
+
+
+

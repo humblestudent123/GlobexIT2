@@ -32,7 +32,7 @@ export default function ProfileSidebar() {
         <Text>Я, и только я</Text>
 
         <Text type="secondary">Компания</Text>
-        <Text>ГлобэксАйТи</Text>
+        <Text>ГлобэксАЙТИ</Text>
 
         <Text type="secondary">Email</Text>
         <Text>my-email.com</Text>
